@@ -1,0 +1,29 @@
+---
+- name: Install packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      changed_when: false
+
+    - name: Install OpenJDK 17
+      apt:
+        name: openjdk-17-jdk
+        state: present
+
+    - name: Install Go
+      apt:
+        name: golang-go
+        state: present
+
+    - name: Install rustup
+      apt:
+        name: rustup
+        state: present
+
+    - name: Install rust stable toolchain
+      shell: . /root/.cargo/env && rustup default stable
+      args:
+        creates: /root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu
