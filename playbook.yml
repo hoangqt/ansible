@@ -2,6 +2,7 @@
 - name: Install packages
   hosts: all
   become: yes
+  gather_facts: yes
   tasks:
     - name: Update apt cache
       apt:
@@ -24,6 +25,12 @@
         state: present
 
     - name: Install rust stable toolchain
-      shell: . /root/.cargo/env && rustup default stable
+      become: no
+      shell: "rustup toolchain install stable --profile minimal"
       args:
-        creates: /root/.rustup/toolchains/stable-x86_64-unknown-linux-gnu
+        creates: "{{ ansible_env.HOME }}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
+
+    - name: Install gdb
+      apt:
+        name: gdb
+        state: present
