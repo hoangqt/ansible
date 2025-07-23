@@ -1,0 +1,69 @@
+---
+- name: Install packages
+  hosts: all
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      changed_when: false
+
+    - name: Install gdb
+      apt:
+        name: gdb
+        state: present
+
+    - name: Install docker
+      apt:
+        name: docker.io
+        state: present
+
+    - name: Install ansible
+      apt:
+        name: ansible-core
+        state: present
+
+    - name: Install terraform
+      community.general.snap:
+        name: terraform
+        state: present
+        classic: yes
+
+    - name: Install kubectl
+      community.general.snap:
+        name: kubectl
+        state: present
+        classic: yes
+
+    - name: Install valgrind
+      community.general.snap:
+        name: valgrind
+        state: present
+        classic: yes
+
+    - name: Install make
+      apt:
+        name: make
+        state: present
+
+    - name: Install cmake
+      apt:
+        name: cmake
+        state: present
+
+
+    - name: Install gcc
+      apt:
+        name: gcc
+        state: present
+
+    - name: Install g++
+      apt:
+        name: g++
+        state: present
+
+    - name: Install ninja build
+      apt:
+        name: ninja-build
+        state: present

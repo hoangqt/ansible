@@ -1,0 +1,28 @@
+---
+- name: Install packages
+  hosts: all
+  become: yes
+  gather_facts: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+      changed_when: false
+
+    - name: Install PostgreSQL and contrib packages
+      apt:
+        name:
+          - postgresql
+          - postgresql-contrib
+        state: present
+
+    - name: Install redis server
+      apt:
+        name: redis-server
+        state: present
+
+    - name: Install duckdb
+      community.general.snap:
+        name: duckdb
+        state: present
+        classic: yes

@@ -30,7 +30,29 @@
       args:
         creates: "{{ ansible_env.HOME }}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
 
-    - name: Install gdb
+    - name: Install ruby
       apt:
-        name: gdb
+        name: ruby
+        state: present
+
+    - name: Install lua
+      apt:
+        name: lua5.4
+        state: present
+
+    - name: Install uv
+      community.general.snap:
+        name: astral-uv
+        state: present
+        classic: yes
+
+    - name: Install groovy
+      community.general.snap:
+        name: groovy
+        state: present
+        classic: yes
+
+    - name: Install nodejs
+      apt:
+        name: nodejs
         state: present
