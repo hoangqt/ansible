@@ -9,61 +9,65 @@
         update_cache: yes
       changed_when: false
 
-    - name: Install gdb
+    - name: gdb
       apt:
         name: gdb
         state: present
 
-    - name: Install docker
+    - name: docker
       apt:
         name: docker.io
         state: present
 
-    - name: Install ansible
+    - name: ansible
       apt:
         name: ansible-core
         state: present
 
-    - name: Install terraform
+    - name: terraform
       community.general.snap:
         name: terraform
         state: present
         classic: yes
 
-    - name: Install kubectl
+    - name: kubectl
       community.general.snap:
         name: kubectl
         state: present
         classic: yes
 
-    - name: Install valgrind
+    - name: valgrind
       community.general.snap:
         name: valgrind
         state: present
         classic: yes
 
-    - name: Install make
+    - name: make
       apt:
         name: make
         state: present
 
-    - name: Install cmake
+    - name: build-essential
+      apt:
+        name: build-essential
+        state: present
+
+    - name: cmake
       apt:
         name: cmake
         state: present
 
-
-    - name: Install gcc
+    - name: gcc
       apt:
         name: gcc
         state: present
 
-    - name: Install g++
+    - name: g++
       apt:
         name: g++
         state: present
 
-    - name: Install ninja build
+    - name: Ninja build
       apt:
         name: ninja-build
         state: present

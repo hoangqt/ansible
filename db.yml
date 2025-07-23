@@ -9,19 +9,19 @@
         update_cache: yes
       changed_when: false
 
-    - name: Install PostgreSQL and contrib packages
+    - name: PostgreSQL and contrib packages
       apt:
         name:
           - postgresql
           - postgresql-contrib
         state: present
 
-    - name: Install redis server
+    - name: Redis server
       apt:
         name: redis-server
         state: present
 
-    - name: Install duckdb
+    - name: Duckdb
       community.general.snap:
         name: duckdb
         state: present

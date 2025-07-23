@@ -9,50 +9,53 @@
         update_cache: yes
       changed_when: false
 
-    - name: Install OpenJDK 17
+    - name: OpenJDK 17
       apt:
         name: openjdk-17-jdk
         state: present
 
-    - name: Install Go
+    - name: Go
       apt:
         name: golang-go
         state: present
 
-    - name: Install rustup
+    - name: rustup
       apt:
         name: rustup
         state: present
 
-    - name: Install rust stable toolchain
+    - name: Rust stable toolchain
       become: no
       shell: "rustup toolchain install stable --profile minimal"
       args:
-        creates: "{{ ansible_env.HOME }}/.rustup/toolchains/stable-x86_64-unknown-linux-gnu"
+        creates: >-
+          {{ ansible_env.HOME ~
+          '/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'}}
 
-    - name: Install ruby
+    - name: ruby
       apt:
         name: ruby
         state: present
 
-    - name: Install lua
+    - name: lua
       apt:
         name: lua5.4
         state: present
 
-    - name: Install uv
+    - name: uv
       community.general.snap:
         name: astral-uv
         state: present
         classic: yes
 
-    - name: Install groovy
+    - name: groovy
       community.general.snap:
         name: groovy
         state: present
         classic: yes
 
+    - name: Add NodeSource setup script for Node.js 22
+      shell: curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
+
     - name: Install nodejs
-      apt:
-        name: nodejs
-        state: present
+      shell: sudo apt-get install -y nodejs
