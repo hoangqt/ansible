@@ -71,3 +71,8 @@
       apt:
         name: ninja-build
         state: present
+
+    - name: Netools
+      apt:
+        name: net-tools
+        state: present
