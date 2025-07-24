@@ -9,60 +9,60 @@
         update_cache: true
       changed_when: false
 
-    - name: gdb
+    - name: Gdb
       apt:
         name: gdb
         state: present
 
-    - name: docker
+    - name: Docker
       apt:
         name: docker.io
         state: present
 
-    - name: ansible
+    - name: Ansible
       apt:
         name: ansible-core
         state: present
 
-    - name: terraform
+    - name: Terraform
       community.general.snap:
         name: terraform
         state: present
         classic: true
 
-    - name: kubectl
+    - name: Kubectl
       community.general.snap:
         name: kubectl
         state: present
         classic: true
 
-    - name: valgrind
+    - name: Valgrind
       community.general.snap:
         name: valgrind
         state: present
         classic: true
 
-    - name: make
+    - name: Make
       apt:
         name: make
         state: present
 
-    - name: build-essential
+    - name: Build essential
       apt:
         name: build-essential
         state: present
 
-    - name: cmake
+    - name: Cmake
       apt:
         name: cmake
         state: present
 
-    - name: gcc
+    - name: Gcc
       apt:
         name: gcc
         state: present
 
-    - name: g++
+    - name: G++
       apt:
         name: g++
         state: present
@@ -77,12 +77,12 @@
         name: net-tools
         state: present
 
-    - name: neovim
+    - name: Neovim
       apt:
         name: neovim
         state: present
 
-    - name: firewall
+    - name: Firewall
       apt:
         name: firewalld
         state: present
