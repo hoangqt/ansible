@@ -26,7 +26,7 @@
 
     - name: Rust stable toolchain
       become: false
-      shell: "rustup toolchain install stable --profile minimal"
+      ansible.builtin.shell: "rustup toolchain install stable --profile minimal"
       args:
         creates: >-
           {{ ansible_env.HOME ~
@@ -49,15 +49,15 @@
         classic: true
 
     - name: Add NodeSource setup script for Node.js 22
-      shell: curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
+      ansible.builtin.shell: curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
 
     - name: Install nodejs
-      shell: sudo apt-get install -y nodejs
+      ansible.builtin.shell: sudo apt-get install -y nodejs
 
     - name: Sdkman
-      shell: curl -s "https://get.sdkman.io" | bash
+      ansible.builtin.shell: curl -s "https://get.sdkman.io" | bash
 
     - name: Groovy
-      shell:
+      ansible.builtin.shell:
         cmd: . "$HOME/.sdkman/bin/sdkman-init.sh" && sdk install groovy
         executable: /bin/bash

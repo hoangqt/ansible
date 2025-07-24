@@ -5,22 +5,22 @@
   gather_facts: true
   tasks:
     - name: Update apt cache
-      apt:
+      ansible.builtin.apt:
         update_cache: true
       changed_when: false
 
     - name: Gdb
-      apt:
+      ansible.builtin.apt:
         name: gdb
         state: present
 
     - name: Docker
-      apt:
+      ansible.builtin.apt:
         name: docker.io
         state: present
 
     - name: Ansible
-      apt:
+      ansible.builtin.apt:
         name: ansible-core
         state: present
 
@@ -43,46 +43,46 @@
         classic: true
 
     - name: Make
-      apt:
+      ansible.builtin.apt:
         name: make
         state: present
 
     - name: Build essential
-      apt:
+      ansible.builtin.apt:
         name: build-essential
         state: present
 
     - name: Cmake
-      apt:
+      ansible.builtin.apt:
         name: cmake
         state: present
 
     - name: Gcc
-      apt:
+      ansible.builtin.apt:
         name: gcc
         state: present
 
     - name: G++
-      apt:
+      ansible.builtin.apt:
         name: g++
         state: present
 
     - name: Ninja build
-      apt:
+      ansible.builtin.apt:
         name: ninja-build
         state: present
 
     - name: Netools
-      apt:
+      ansible.builtin.apt:
         name: net-tools
         state: present
 
     - name: Neovim
-      apt:
+      ansible.builtin.apt:
         name: neovim
         state: present
 
     - name: Firewall
-      apt:
+      ansible.builtin.apt:
         name: firewalld
         state: present
