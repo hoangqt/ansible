@@ -1,12 +1,12 @@
 ---
-- name: Install packages
+- name: Install utilities
   hosts: all
-  become: yes
-  gather_facts: yes
+  become: true
+  gather_facts: true
   tasks:
     - name: Update apt cache
       apt:
-        update_cache: yes
+        update_cache: true
       changed_when: false
 
     - name: gdb
@@ -28,19 +28,19 @@
       community.general.snap:
         name: terraform
         state: present
-        classic: yes
+        classic: true
 
     - name: kubectl
       community.general.snap:
         name: kubectl
         state: present
-        classic: yes
+        classic: true
 
     - name: valgrind
       community.general.snap:
         name: valgrind
         state: present
-        classic: yes
+        classic: true
 
     - name: make
       apt:
@@ -75,4 +75,14 @@
     - name: Netools
       apt:
         name: net-tools
+        state: present
+
+    - name: neovim
+      apt:
+        name: neovim
+        state: present
+
+    - name: firewall
+      apt:
+        name: firewalld
         state: present

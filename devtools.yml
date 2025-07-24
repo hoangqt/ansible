@@ -1,12 +1,12 @@
 ---
-- name: Install packages
+- name: Install development tools
   hosts: all
-  become: yes
-  gather_facts: yes
+  become: true
+  gather_facts: true
   tasks:
     - name: Update apt cache
       apt:
-        update_cache: yes
+        update_cache: true
       changed_when: false
 
     - name: OpenJDK 17
@@ -25,7 +25,7 @@
         state: present
 
     - name: Rust stable toolchain
-      become: no
+      become: false
       shell: "rustup toolchain install stable --profile minimal"
       args:
         creates: >-
@@ -46,16 +46,18 @@
       community.general.snap:
         name: astral-uv
         state: present
-        classic: yes
-
-    - name: groovy
-      community.general.snap:
-        name: groovy
-        state: present
-        classic: yes
+        classic: true
 
     - name: Add NodeSource setup script for Node.js 22
       shell: curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
 
     - name: Install nodejs
       shell: sudo apt-get install -y nodejs
+
+    - name: sdkman
+      shell: curl -s "https://get.sdkman.io" | bash
+
+    - name: groovy
+      shell:
+        cmd: . "$HOME/.sdkman/bin/sdkman-init.sh" && sdk install groovy
+        executable: /bin/bash

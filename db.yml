@@ -1,12 +1,12 @@
 ---
-- name: Install packages
+- name: Install databases
   hosts: all
-  become: yes
-  gather_facts: yes
+  become: true
+  gather_facts: true
   tasks:
     - name: Update apt cache
       apt:
-        update_cache: yes
+        update_cache: true
       changed_when: false
 
     - name: PostgreSQL and contrib packages
@@ -25,4 +25,4 @@
       community.general.snap:
         name: duckdb
         state: present
-        classic: yes
+        classic: true
