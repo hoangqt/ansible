@@ -82,7 +82,12 @@
         name: neovim
         state: present
 
-    - name: Firewall
+    - name: Policycoreutils
       ansible.builtin.apt:
-        name: firewalld
+        name: policycoreutils
+        state: present
+
+    - name: gnupg2
+      ansible.builtin.apt:
+        name: gnupg2
         state: present

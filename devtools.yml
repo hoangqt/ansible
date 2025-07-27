@@ -1,4 +1,6 @@
 ---
+- import_playbook: base.yml
+
 - name: Install development tools
   hosts: all
   become: true
@@ -49,10 +51,14 @@
         classic: true
 
     - name: Add NodeSource setup script for Node.js 22
-      ansible.builtin.shell: curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
+      ansible.builtin.shell: >-
+        curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
 
     - name: Install nodejs
       ansible.builtin.shell: sudo apt-get install -y nodejs
+
+    - name: Yarn
+      ansible.builtin.shell: npm install -g yarn
 
     - name: Sdkman
       ansible.builtin.shell: curl -s "https://get.sdkman.io" | bash

@@ -1,4 +1,6 @@
 ---
+- import_playbook: base.yml
+
 - name: Install databases
   hosts: all
   become: true
