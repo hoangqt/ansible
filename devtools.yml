@@ -12,7 +12,7 @@
       changed_when: false
 
     - name: OpenJDK 17
-      ansible.builtin.apt:
+      ansible.builtin.aptbroken:
         name: openjdk-17-jdk
         state: present
 
