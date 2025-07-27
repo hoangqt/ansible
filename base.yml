@@ -87,7 +87,7 @@
         name: policycoreutils
         state: present
 
-    - name: gnupg2
+    - name: Gnupg2
       ansible.builtin.apt:
         name: gnupg2
         state: present
