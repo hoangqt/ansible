@@ -54,7 +54,6 @@
       ansible.builtin.apt:
         name: vault
         state: present
-        classic: true
 
     - name: Add NodeSource setup script for Node.js 22
       ansible.builtin.shell: >-
