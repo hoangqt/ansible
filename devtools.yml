@@ -50,6 +50,12 @@
         state: present
         classic: true
 
+    - name: Vault
+      community.general.snap:
+        name: vault
+        state: present
+        classic: true
+
     - name: Add NodeSource setup script for Node.js 22
       ansible.builtin.shell: >-
         curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
