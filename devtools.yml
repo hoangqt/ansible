@@ -51,9 +51,10 @@
         classic: true
 
     - name: Vault
-      ansible.builtin.apt:
+      community.general.snap:
         name: vault
         state: present
+        classic: true
 
     - name: Add NodeSource setup script for Node.js 22
       ansible.builtin.shell: >-
