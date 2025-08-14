@@ -73,3 +73,8 @@
       ansible.builtin.shell:
         cmd: . "$HOME/.sdkman/bin/sdkman-init.sh" && sdk install groovy
         executable: /bin/bash
+
+    - name: Bazel
+      ansible.builtin.apt:
+        name: bazel-bootstrap
+        state: present
