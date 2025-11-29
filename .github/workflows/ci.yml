@@ -1,9 +1,6 @@
 ---
 name: Ansible scripts CI
 
-env:
-  CI: true
-
 on:
   push:
     branches:
