@@ -1,6 +1,6 @@
 # Summary
 
-Terraform configuration to spin up VMs for testing.
+Post terraform step to setup software packages on VMs.
 
 ## Setup
 
